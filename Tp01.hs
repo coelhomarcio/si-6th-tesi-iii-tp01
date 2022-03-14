@@ -3,12 +3,9 @@ module Tp01 where
 
 data Lista = Vazio | Cons Int Lista deriving Show
 
--- Dica: Salve seu progresso em um arquivo separado.
--- Sempre que for efetuar um PUSH, primeiro execute um PULL
--- para atualizar a versão do arquivo localmente. Cole seu
--- código no espaço determinado para sua dupla. Salve,
--- efetue o COMMIT (git add .) e (git commit -m "${MENSAGEM}")
--- e o PUSH (git push).
+-- Dica: Use o espaço determinado para sua dupla.
+-- Faça o FORK, trabalhe no seu código, e ao término
+-- abra um PULL REQUEST.
 
 -- TODO: Criar para o tipo Lista uma função que execute
 -- exatamente o que a seguinte função nativa faz.
