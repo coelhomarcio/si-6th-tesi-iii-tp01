@@ -67,7 +67,7 @@ tails (Cons i is) = [is] :  tails is
 
 tails' :: Lista -> [Lista]
 tails' Vazio = []
-tails' (Cons i is) = is :  tailsr' is
+-- tails' (Cons i is) = is :  tailsr' is
 
 -- > tails' (Cons 4 (Cons 3 (Cons 2 (Cons 1 Vazio))))
 -- > Resultado: [Cons 3 Cons 2 (Cons 1 Vazio), Cons 2 (Cons 1 Vazio), Cons 1 Vazio, Vazio]
