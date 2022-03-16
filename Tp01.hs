@@ -58,19 +58,16 @@ concatena' (Cons i is) xs = i : concatena' is xs
 -- tails
 -- TODO (Felipe e Carlos Eduardo)
 
+tail' :: Lista -> Lista
+tail' Vazio = Vazio
+tail' (Cons i is) = is
+
 tails :: Lista -> [[Lista]]
-tails Vazio = []
-tails (Cons i is) = [is] :  tails is
+tails Vazio = [[Vazio]]
+tails is = [is] : tails (tail' is)
 
--- > tails (Cons 4 (Cons 3 (Cons 2 (Cons 1 Vazio))))
--- > Resultado: [[Cons 3 Cons 2 (Cons 1 Vazio)], [Cons 2 (Cons 1 Vazio)], [Cons 1 Vazio], [Vazio]]
-
-tails' :: Lista -> [Lista]
-tails' Vazio = []
--- tails' (Cons i is) = is :  tailsr' is
-
--- > tails' (Cons 4 (Cons 3 (Cons 2 (Cons 1 Vazio))))
--- > Resultado: [Cons 3 Cons 2 (Cons 1 Vazio), Cons 2 (Cons 1 Vazio), Cons 1 Vazio, Vazio]
+-- -> Entrada: tails (Cons 3 (Cons 2 (Cons 1 Vazio)))
+-- -> Saída: [[Cons 3 (Cons 2 (Cons 1 Vazio))],[Cons 2 (Cons 1 Vazio)],[Cons 1 Vazio],[Vazio]]
 
 -- END TODO (Felipe e Carlos Eduardo)
 
