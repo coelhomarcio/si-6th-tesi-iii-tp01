@@ -25,8 +25,6 @@ concatena (Cons i is) xs = i : concatena is xs
 -- > concatena (Cons 1 (Cons 2 (Cons 3 (Cons 4 Vazio)))) [5, 6, 7, 8]
 -- > Resultado [1, 2, 3, 4, 5, 6, 7, 8]
 
--- END TODO (Christian e Luis)
-
 concatena' :: Lista -> Lista -> [Int]
 concatena' Vazio Vazio = []
 concatena' Vazio (Cons x xs) = x : concatena' Vazio xs
@@ -34,6 +32,8 @@ concatena' (Cons i is) xs = i : concatena' is xs
 
 -- > concatena' (Cons 1 (Cons 2 (Cons 3 (Cons 4 Vazio)))) (Cons 5 (Cons 6 (Cons 7 (Cons 8 Vazio))))
 -- > Resultado [1, 2, 3, 4, 5, 6, 7, 8]
+
+-- END TODO (Christian e Luis)
 
 -- drop
 -- TODO (tais e rene)
