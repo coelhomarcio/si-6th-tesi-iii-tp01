@@ -89,9 +89,9 @@ tails' (Cons i is) = is :  tails' is
 
 -- scanr
 -- TODO (Helio e Lucca)
-scanl' :: (Lista, Int) -> Int
-scanl' (Vazio, acumulador) = acumulador
-scanl' ((Cons valor resto), acumulador) = scanl'(resto, acumulador+valor)
+scanl' :: (Lista, Int) -> Lista
+scanl' (Vazio, acumulador) = Vazio
+scanl' ((Cons valor resto), acumulador) = Cons (valor+acumulador) (scanl' (resto, (acumulador+valor)))
 -- END TODO (Helio e Lucca)
 
 
