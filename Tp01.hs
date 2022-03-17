@@ -1,5 +1,9 @@
-{-# LANGUAGE TypeOperators #-} -- Just in case..
+-- Just in case..
+{-# LANGUAGE TypeOperators #-}
+
 module Tp01 where
+
+import Data.List (subsequences) -- TODO (Vic e Coelho)
 
 data Lista = Vazio | Cons Int Lista deriving (Show, Eq)
 
@@ -55,7 +59,7 @@ concatena' (Cons i is) xs = i : concatena' is xs
 
 meuInit :: [Int] -> [Int]
 meuInit [x] = []
-meuInit (x:xs) = x : meuInit xs
+meuInit (x : xs) = x : meuInit xs
 
 meuInits :: [Int] -> [[Int]]
 meuInits [] = []
@@ -81,10 +85,11 @@ tails is = [is] : tails (tail' is)
 
 -- transpose
 -- TODO (Pedro Luiz e Karoline)
+
 transpose' :: [[Lista]] -> [[Lista]]
 transpose' x
-        | head x == [] = [[Vazio]]
-        | otherwise = (map head x) : (transpose' (map tail x))
+  | head x == [] = [[Vazio]]
+  | otherwise = (map head x) : (transpose' (map tail x))
 
 -- -> Entrada: transpose' [[Cons 5 (Cons 7 Vazio),Cons 8 (Cons 1 Vazio),Cons 9 (Cons 4 Vazio)],[Cons 15 (Cons 17 Vazio),Cons 18 (Cons 11 Vazio),Cons 19 (Cons 14 Vazio)]]
 -- -> Saída: [[Cons 5 (Cons 7 Vazio),Cons 15 (Cons 17 Vazio)], [Cons 8 (Cons 1 Vazio),Cons 18 (Cons 11 Vazio)], [Cons 9 (Cons 4 Vazio),Cons 19 (Cons 14 Vazio)]]
@@ -92,19 +97,20 @@ transpose' x
 
 -- groupBy
 -- TODO (Felipe e Thalles)
+
 groupBy :: [Int] -> [[Int]]
 groupBy [] = []
 groupBy [first] = [[first]]
-groupBy (first:second:rest)
-   | first /= second = [first]:groupBy(second:rest)
-   | otherwise = (first:[second]):groupBy rest
+groupBy (first : second : rest)
+  | first /= second = [first] : groupBy (second : rest)
+  | otherwise = (first : [second]) : groupBy rest
 
 -- groupBy' :: [Lista] -> [[Lista]]
 -- groupBy' [] = []
 -- groupBy' [first] = [[first]]
 -- groupBy' (first:second:rest)
 --    //Linha com erro
---    | first /= second = [first]:groupBy'(second:rest) 
+--    | first /= second = [first]:groupBy'(second:rest)
 --    | otherwise = (first:[second]):groupBy' rest
 
 -- END TODO (Felipe e Thalles)
@@ -117,6 +123,29 @@ groupBy (first:second:rest)
 -- subsequences
 -- TODO (Vic e Coelho)
 
+subsequences' :: Lista -> [[Int]]
+subsequences' xs = [] : nonEmptySubsequences' (listaToList xs)
+
+listaToList :: Lista -> [Int]
+listaToList Vazio = []
+listaToList (Cons x xs) = x : listaToList xs
+
+nonEmptySubsequences' :: [Int] -> [[Int]]
+nonEmptySubsequences' [] = []
+nonEmptySubsequences' (x : xs) = [x] : foldr f [] (nonEmptySubsequences' xs)
+  where
+    f ys r = ys : (x : ys) : r
+
+-- subsequences' (Cons 28 $ Cons 7 $ Cons 93 Vazio)
+-- [[],[28],[7],[28,7],[93],[28,93],[7,93],[28,7,93]]
+
+-- length de saída = 2 ^ (length de entrada)
+
+-- Gostaríamos de ter convertido a saída de volta para o tipo Lista
+
+-- Não tivemos tempo também para desenvolver a versão própria do
+-- "nonEmptySubsequences" bem como do "foldr"
+
 -- END TODO (Vic e Coelho)
 
 -- foldl
@@ -126,10 +155,11 @@ groupBy (first:second:rest)
 
 -- scanr
 -- TODO (Helio e Lucca)
+
 scanl' :: (Lista, Int) -> Lista
 scanl' (Vazio, acumulador) = Vazio
-scanl' ((Cons valor resto), acumulador) = Cons (valor+acumulador) (scanl' (resto, (acumulador+valor)))
--- END TODO (Helio e Lucca)
+scanl' ((Cons valor resto), acumulador) = Cons (valor + acumulador) (scanl' (resto, (acumulador + valor)))
 
+-- END TODO (Helio e Lucca)
 
 -- Have fun!
