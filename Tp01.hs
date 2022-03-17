@@ -152,10 +152,9 @@ nonEmptySubsequences' (x : xs) = [x] : foldr f [] (nonEmptySubsequences' xs)
 -- TODO (cyro e henrique)
 
 --foldl:: (b -> a -> b) -> b -> [a] -> b
-foldl':: (Int-> Int-> Int) -> Int -> [Int] -> Int
+foldl' :: (Int -> Int -> Int) -> Int -> [Int] -> Int
 foldl' (fun) x [] = x
-foldl' (fun) x (a:as) = foldl' fun (fun x a) as
-
+foldl' (fun) x (a : as) = foldl' fun (fun x a) as
 
 -- END TODO (cyro e henrique)
 
