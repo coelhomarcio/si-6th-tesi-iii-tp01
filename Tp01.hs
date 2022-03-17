@@ -40,6 +40,13 @@ concatena' (Cons i is) xs = i : concatena' is xs
 -- END TODO (Christian e Luis)
 
 -- drop
+
+drop' :: Int -> [a] -> [a]
+drop' _ [] = []
+drop' i (x:xs)
+     | i == 1    = xs
+     | otherwise =  drop' (i-1) xs
+
 -- TODO (tais e rene)
 
 -- END TODO (tais e rene)
