@@ -1,7 +1,7 @@
 {-# LANGUAGE TypeOperators #-} -- Just in case..
 module Tp01 where
 
-data Lista = Vazio | Cons Int Lista deriving Show
+data Lista = Vazio | Cons Int Lista deriving (Show, Eq)
 
 -- Dica: Use o espaço determinado para sua dupla.
 -- Faça o FORK, trabalhe no seu código, e ao término
@@ -53,6 +53,14 @@ concatena' (Cons i is) xs = i : concatena' is xs
 -- inits
 -- TODO (Jonathas e Rosangela)
 
+meuInit :: [Int] -> [Int]
+meuInit [x] = []
+meuInit (x:xs) = x : meuInit xs
+
+meuInits :: [Int] -> [[Int]]
+meuInits [] = []
+meuInits xs = meuInit xs : meuInits (init xs)
+
 -- END TODO (Jonathas e Rosangela)
 
 -- tails
@@ -72,9 +80,15 @@ tails is = [is] : tails (tail' is)
 -- END TODO (Felipe e Carlos Eduardo)
 
 -- transpose
--- TODO (Pedro Luiz e Caroline)
+-- TODO (Pedro Luiz e Karoline)
+transpose' :: [[Lista]] -> [[Lista]]
+transpose' x
+        | head x == [] = [[Vazio]]
+        | otherwise = (map head x) : (transpose' (map tail x))
 
--- END TODO (Pedro Luiz e Caroline)
+-- -> Entrada: transpose' [[Cons 5 (Cons 7 Vazio),Cons 8 (Cons 1 Vazio),Cons 9 (Cons 4 Vazio)],[Cons 15 (Cons 17 Vazio),Cons 18 (Cons 11 Vazio),Cons 19 (Cons 14 Vazio)]]
+-- -> Saída: [[Cons 5 (Cons 7 Vazio),Cons 15 (Cons 17 Vazio)], [Cons 8 (Cons 1 Vazio),Cons 18 (Cons 11 Vazio)], [Cons 9 (Cons 4 Vazio),Cons 19 (Cons 14 Vazio)]]
+-- END TODO (Pedro Luiz e Karoline)
 
 -- groupBy
 -- TODO (Felipe e Thalles)
