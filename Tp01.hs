@@ -55,7 +55,7 @@ tails (Cons i is) = [is] :  tails is
 
 tails' :: Lista -> [Lista]
 tails' Vazio = []
-tails' (Cons i is) = is :  tailsr' is
+tails' (Cons i is) = is :  tails' is
 
 -- > tails' (Cons 4 (Cons 3 (Cons 2 (Cons 1 Vazio))))
 -- > Resultado: [Cons 3 Cons 2 (Cons 1 Vazio), Cons 2 (Cons 1 Vazio), Cons 1 Vazio, Vazio]
@@ -89,7 +89,9 @@ tails' (Cons i is) = is :  tailsr' is
 
 -- scanr
 -- TODO (Helio e Lucca)
-
+scanl' :: (Lista, Int) -> Int
+scanl' (Vazio, acumulador) = acumulador
+scanl' ((Cons valor resto), acumulador) = scanl'(resto, acumulador+valor)
 -- END TODO (Helio e Lucca)
 
 
