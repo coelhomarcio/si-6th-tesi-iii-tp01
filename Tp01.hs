@@ -42,11 +42,11 @@ concatena' (Cons i is) xs = i : concatena' is xs
 -- drop
 -- TODO (tais e rene)
 
-drop' :: Int -> [a] -> [a]
-drop' _ [] = []
-drop' i (x : xs)
-  | i == 1 = xs
-  | otherwise = drop' (i -1) xs
+drop' :: Int -> Lista -> Lista
+drop' _ Vazio = Vazio
+drop' x (Cons i is)
+     | x == 1 = is
+     | otherwise =  drop' (x-1) is
 
 -- END TODO (tais e rene)
 
