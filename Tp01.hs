@@ -53,13 +53,13 @@ concatena' (Cons i is) xs = i : concatena' is xs
 -- inits
 -- TODO (Jonathas e Rosangela)
 
-meuInit :: [Int] -> [Int]
-meuInit [x] = []
-meuInit (x:xs) = x : meuInit xs
+meuInit :: Lista -> Lista
+meuInit i = Vazio
+meuInit (Cons i is) = i : meuInit is
 
-meuInits :: [Int] -> [[Int]]
-meuInits [] = []
-meuInits xs = meuInit xs : meuInits (init xs)
+meuInits :: Lista -> [Lista]
+meuInits i = Vazio
+meuInits (Cons i is) = meuInit is : meuInits (init is)
 
 -- END TODO (Jonathas e Rosangela)
 
