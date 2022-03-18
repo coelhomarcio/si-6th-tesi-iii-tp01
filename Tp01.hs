@@ -45,8 +45,8 @@ concatena' (Cons i is) xs = i : concatena' is xs
 drop' :: Int -> Lista -> Lista
 drop' _ Vazio = Vazio
 drop' x (Cons i is)
-     | x == 1 = is
-     | otherwise =  drop' (x-1) is
+  | x == 1 = is
+  | otherwise = drop' (x -1) is
 
 -- END TODO (tais e rene)
 
@@ -63,13 +63,13 @@ drop' x (Cons i is)
 -- inits
 -- TODO (Jonathas e Rosangela)
 
-meuInit :: Lista -> Lista
-meuInit i = Vazio
-meuInit (Cons i is) = i : meuInit is
+-- meuInit :: Lista -> Lista
+-- meuInit i = Vazio
+-- meuInit (Cons i is) = i : meuInit is
 
-meuInits :: Lista -> [Lista]
-meuInits i = Vazio
-meuInits (Cons i is) = meuInit is : meuInits (init is)
+-- meuInits :: Lista -> [Lista]
+-- meuInits i = Vazio
+-- meuInits (Cons i is) = meuInit is : meuInits (init is)
 
 -- END TODO (Jonathas e Rosangela)
 
