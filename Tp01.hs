@@ -104,20 +104,23 @@ transpose' x
 -- groupBy
 -- TODO (Felipe e Thalles)
 
+-- groupBy :: [Int] -> [[Int]]
+-- groupBy [] = []
+-- groupBy [first] = [[first]]
+-- groupBy (first : second : rest)
+--   | first /= second = [first] : groupBy (second : rest)
+--   | otherwise = (first : [second]) : groupBy rest
+
 groupBy :: [Int] -> [[Int]]
 groupBy [] = []
 groupBy [first] = [[first]]
-groupBy (first : second : rest)
-  | first /= second = [first] : groupBy (second : rest)
-  | otherwise = (first : [second]) : groupBy rest
+groupBy (first:second:rest)
+  | first /= second = [first]:groupBy(second:rest)
+  | otherwise = (first:[second]):groupBy(rest)
 
--- groupBy' :: [Lista] -> [[Lista]]
--- groupBy' [] = []
--- groupBy' [first] = [[first]]
--- groupBy' (first:second:rest)
---    //Linha com erro
---    | first /= second = [first]:groupBy'(second:rest)
---    | otherwise = (first:[second]):groupBy' rest
+groupBy' :: Lista -> [[Int]]
+groupBy' xs = groupBy (listaToList xs) 
+
 
 -- END TODO (Felipe e Thalles)
 
