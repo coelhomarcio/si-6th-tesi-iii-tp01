@@ -114,13 +114,12 @@ transpose' x
 groupBy :: [Int] -> [[Int]]
 groupBy [] = []
 groupBy [first] = [[first]]
-groupBy (first:second:rest)
-  | first /= second = [first]:groupBy(second:rest)
-  | otherwise = (first:[second]):groupBy(rest)
+groupBy (first : second : rest)
+  | first /= second = [first] : groupBy (second : rest)
+  | otherwise = (first : [second]) : groupBy (rest)
 
 groupBy' :: Lista -> [[Int]]
-groupBy' xs = groupBy (listaToList xs) 
-
+groupBy' xs = groupBy (listaToList xs)
 
 -- END TODO (Felipe e Thalles)
 
