@@ -59,6 +59,6 @@ _**scanr**_
 
 ## _**Entrega**_
 
-17/03 às 19h00: Link do repositório no canal _5-Recursão_ da disciplina no Teams.
+17/03/2022 às 19h00: Link do repositório no canal _5-Recursão_ da disciplina no Teams.
 
 **Bom trabalho!**
