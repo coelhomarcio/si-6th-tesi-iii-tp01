@@ -63,13 +63,12 @@ drop' x (Cons i is)
 -- inits
 -- TODO (Jonathas e Rosangela)
 
--- meuInit :: Lista -> Lista
--- meuInit i = Vazio
--- meuInit (Cons i is) = i : meuInit is
+newInit :: [Int] -> [[Int]]
+newInit [] = [[]]
+newInit xs = newInit (init xs) ++ [xs]
 
--- meuInits :: Lista -> [Lista]
--- meuInits i = Vazio
--- meuInits (Cons i is) = meuInit is : meuInits (init is)
+newInits :: Lista -> [[Int]]
+newInits xs = newInit (listaToList xs)
 
 -- END TODO (Jonathas e Rosangela)
 
